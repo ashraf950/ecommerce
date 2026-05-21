@@ -3,23 +3,21 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Instagram } from 'lucide-react'
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12 mt-16">
+    <footer className="bg-slate-950 text-slate-100 py-16 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* About */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 mb-12">
           <div>
-            <h3 className="text-xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+            <h3 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400">
               StyleHub
             </h3>
-            <p className="text-gray-400">
-              Your premium destination for fashion and style. Discover the latest trends and timeless classics.
+            <p className="text-slate-400 leading-relaxed">
+              Curated fashion essentials and premium collections crafted for bold, modern silhouettes.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-gray-400">
+            <h4 className="text-lg font-semibold mb-4 text-slate-100">Explore</h4>
+            <ul className="space-y-3 text-slate-400">
               <li>
                 <a href="#" className="hover:text-white transition">
                   Home
@@ -31,22 +29,21 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition">
+                <a href="#categories" className="hover:text-white transition">
                   Categories
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-white transition">
-                  Sale
+                  New Arrivals
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Customer Service */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Customer Service</h4>
-            <ul className="space-y-2 text-gray-400">
+            <h4 className="text-lg font-semibold mb-4 text-slate-100">Customer Care</h4>
+            <ul className="space-y-3 text-slate-400">
               <li>
                 <a href="#" className="hover:text-white transition">
                   Contact Us
@@ -70,19 +67,18 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-            <div className="space-y-3 text-gray-400">
-              <div className="flex items-center space-x-2">
+            <h4 className="text-lg font-semibold mb-4 text-slate-100">Contact</h4>
+            <div className="space-y-4 text-slate-400">
+              <div className="flex items-center gap-3">
                 <Mail size={18} />
                 <span>support@stylehub.com</span>
               </div>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center gap-3">
                 <Phone size={18} />
                 <span>+1 (800) 123-4567</span>
               </div>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center gap-3">
                 <MapPin size={18} />
                 <span>New York, USA</span>
               </div>
@@ -90,28 +86,16 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Social Media */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 mb-4 md:mb-0">
-            © 2024 StyleHub. All rights reserved.
-          </p>
-          <div className="flex space-x-4">
-            <a
-              href="#"
-              className="text-gray-400 hover:text-blue-400 transition transform hover:scale-110"
-            >
+        <div className="border-t border-slate-800 pt-8 flex flex-col lg:flex-row justify-between items-center gap-4 text-slate-400">
+          <p>© 2026 StyleHub. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <a href="#" className="transition transform hover:scale-110 text-slate-400 hover:text-cyan-400">
               <Facebook size={24} />
             </a>
-            <a
-              href="#"
-              className="text-gray-400 hover:text-blue-400 transition transform hover:scale-110"
-            >
+            <a href="#" className="transition transform hover:scale-110 text-slate-400 hover:text-cyan-400">
               <Twitter size={24} />
             </a>
-            <a
-              href="#"
-              className="text-gray-400 hover:text-pink-400 transition transform hover:scale-110"
-            >
+            <a href="#" className="transition transform hover:scale-110 text-slate-400 hover:text-pink-400">
               <Instagram size={24} />
             </a>
           </div>

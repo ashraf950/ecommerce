@@ -7,39 +7,36 @@ import HeroCarousel from '../components/HeroCarousel';
 import { categories, products } from '../data/products';
 
 const Home = () => {
-  // Get featured products (first 8)
   const featuredProducts = products.slice(0, 8);
-  // Get carousel products - best sellers/featured
-  const carouselProducts = products.slice(0, 6);
+  const heroProducts = products.slice(0, 6);
 
   return (
     <div>
-      {/* Hero Carousel Section */}
-      <HeroCarousel products={carouselProducts} />
+      <HeroCarousel products={heroProducts} />
 
-      {/* Categories Section */}
-      <section id="categories" className="py-16 px-4 bg-white">
+      <section id="categories" className="py-20 px-4 bg-slate-950 dark:bg-slate-900">
         <div className="max-w-7xl mx-auto">
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-2">Shop by Category</h2>
-            <p className="text-gray-600">
-              Explore our diverse collection of premium fashion items
+            <p className="text-sm uppercase tracking-[0.4em] text-teal-300 mb-3">Curated Collections</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Discover Style That Speaks</h2>
+            <p className="text-slate-300 max-w-2xl mx-auto">
+              Explore premium collections and essential pieces crafted for modern wardrobes.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {categories.map((category, index) => (
               <motion.div
                 key={category.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.12 }}
               >
                 <CategoryCard category={category} />
               </motion.div>
@@ -48,22 +45,32 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Products Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-20 px-4 bg-slate-50 dark:bg-slate-950">
         <div className="max-w-7xl mx-auto">
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="flex flex-col lg:flex-row items-start justify-between gap-6 mb-12"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-2">Featured Products</h2>
-            <p className="text-gray-600">
-              Check out our handpicked selection of bestsellers
-            </p>
+            <div className="max-w-2xl">
+              <p className="text-sm uppercase tracking-[0.4em] text-blue-600 dark:text-teal-300 mb-3">Editor’s Picks</p>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+                Featured products for a premium wardrobe.
+              </h2>
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                Handpicked styles from luxury streetwear to everyday essentials—designed to elevate your look.
+              </p>
+            </div>
+            <Link
+              to="/products"
+              className="inline-flex items-center justify-center rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 px-8 py-3 font-semibold shadow-xl hover:shadow-2xl transition duration-300"
+            >
+              Browse Collection
+            </Link>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
             {featuredProducts.map((product, index) => (
               <motion.div
                 key={product.id}
@@ -76,43 +83,42 @@ const Home = () => {
               </motion.div>
             ))}
           </div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mt-12"
-          >
-            <Link
-              to="/products"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition duration-300 transform hover:scale-105"
-            >
-              View All Products
-            </Link>
-          </motion.div>
         </div>
       </section>
 
-      {/* Promo Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-blue-600 to-purple-600">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center text-white"
-          >
-            <h2 className="text-4xl font-bold mb-4">Summer Sale Now Live!</h2>
-            <p className="text-xl mb-8 text-blue-100">
-              Get up to 50% off on selected items. Limited time offer!
+      <section className="py-20 px-4 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-950 text-white">
+        <div className="max-w-7xl mx-auto grid gap-8 lg:grid-cols-3">
+          <div className="rounded-3xl bg-white/10 border border-white/10 p-8 backdrop-blur-xl">
+            <p className="text-sm uppercase tracking-[0.4em] text-teal-200 mb-3">Limited Release</p>
+            <h3 className="text-3xl font-bold mb-4">Summer Capsule Collection</h3>
+            <p className="text-slate-200 leading-relaxed mb-6">
+              Embrace elevated essentials, made for modern comfort with luxe finishes and signature details.
             </p>
             <Link
               to="/products"
-              className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 transform hover:scale-105"
+              className="inline-flex items-center justify-center rounded-full bg-teal-400 text-slate-950 px-6 py-3 font-semibold shadow-lg hover:bg-teal-300 transition duration-300"
             >
-              Shop Sale
+              Discover Now
             </Link>
-          </motion.div>
+          </div>
+
+          <div className="rounded-3xl bg-white/10 border border-white/10 p-8 backdrop-blur-xl flex flex-col justify-between">
+            <div>
+              <p className="text-sm uppercase tracking-[0.4em] text-blue-200 mb-3">Free Shipping</p>
+              <h3 className="text-3xl font-bold mb-4">Complimentary Delivery</h3>
+              <p className="text-slate-200 leading-relaxed">
+                Enjoy fast, free shipping on all orders over ₹2500 with premium packaging and care.
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-3xl bg-white/10 border border-white/10 p-8 backdrop-blur-xl">
+            <p className="text-sm uppercase tracking-[0.4em] text-pink-200 mb-3">Signature Service</p>
+            <h3 className="text-3xl font-bold mb-4">Personal Styling Support</h3>
+            <p className="text-slate-200 leading-relaxed">
+              Enjoy curated style advice, tailored recommendations, and effortless wardrobe upgrades.
+            </p>
+          </div>
         </div>
       </section>
     </div>

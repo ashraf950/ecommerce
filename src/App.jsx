@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
@@ -10,11 +10,23 @@ import Cart from './pages/Cart';
 import { CartProvider } from './context/CartContext';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
+
+  const toggleDarkMode = () => setDarkMode((prev) => !prev);
+
   return (
     <BrowserRouter>
       <CartProvider>
-        <div className="flex flex-col min-h-screen bg-white">
-          <Navbar />
+        <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+          <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
